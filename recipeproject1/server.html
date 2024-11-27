@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link rel="stylesheet" href="style3.css">   
+
+</head>
+<body>
+    <h1>Our Recipes</h1>
+    
+    <input type="number" id="recipe-id" placeholder="Enter Recipe ID">
+    <button onclick="fetchRecipe()">Get Recipe</button>
+    <div id="recipes-container"></div>
+
+
+    <script>
+        function fetchRecipe() {
+            const recipeId = document.getElementById('recipe-id').value;
+            const recipesContainer = document.getElementById('recipes-container');
+            recipesContainer.innerHTML = ''; // Clear previous results
+
+            fetch(`/get-recipe/${recipeId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        if (response.status === 404) {
+                            throw new Error('Recipe not found');
+                        }
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(recipe => {
+                    const recipeDiv = document.createElement('div');
+                    recipeDiv.classList.add('recipe'); // Add the 'recipe' class for styling
+                    recipeDiv.innerHTML = `
+                        <h2>${recipe.name}</h2>
+                        <img src="${recipe.image}" alt="${recipe.name}">
+                        <p>Ingredients: ${recipe.ingredients}</p>
+                        <p>Procedure: ${recipe.steps}</p> 
+                        <p>Category: ${recipe.category}</p>
+                        <p>By: ${recipe.first_name} ${recipe.last_name}</p>
+                    `;
+                    recipesContainer.appendChild(recipeDiv);
+                })
+                .catch(error => {
+                    console.error('Error fetching recipe:', error);
+                    recipesContainer.innerHTML = `<p>${error.message}</p>`;
+                });
+        }
+
+
+const recipesContainer = document.getElementById('recipes-container');
+
+fetch('/get-recipes')
+        .then(response => response.json())
+        .then(recipes => {
+            recipes.forEach(recipe => {
+                const recipeLink = document.createElement('a');
+                recipeLink.href = `/recipeid.html?id=${recipe.id}`;
+
+                recipeLink.textContent = recipe.name;
+
+                const recipeImage = document.createElement('img');
+                recipeImage.src = recipe.image; 
+                recipeImage.alt = recipe.name;
+
+                // Wrap the image in the anchor tag
+                recipeLink.appendChild(recipeImage); 
+
+                const recipeDiv = document.createElement('div');
+                recipeDiv.appendChild(recipeLink); 
+
+                recipesContainer.appendChild(recipeDiv);
+            });
+        })
+    .catch(error => {
+        console.error('Error fetching recipes:', error);
+        recipesContainer.innerHTML = '<p>Error fetching recipes</p>';
+    });    
+</script>
+
+<button><a href="recipe.html">Add New Recipe</a></button> 
+</body>
+</html>

@@ -1,0 +1,42 @@
+*{
+
+    background-color:#ecdcdb;
+    text-align: center;
+    margin-top: 50px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+
+}
+
+nav img{
+    width: 100px;
+    margin-top:5px;
+    align-items: center;
+
+}
+
+.submit-btn{
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+.submit-btn:hover{
+    background-color:#f44336 ;
+    transition: 0.5s;
+    color: black;
+}
+
+.footer{
+    width: 100%;
+    text-align: center;
+    padding:  0;
+   border: #ecdcdb;
+   border-style: solid;
+   border-color: #ecdcdb;
+   background-color:#ecdcdb ;
+  
+   }
+
+.fa-heart-o{
+    color: #f44336;
+    background-color:#ecdcdb;
+}

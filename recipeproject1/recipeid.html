@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recipe-details</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <div id="recipe-details"></div>
+
+
+    <script>
+        const recipeDetails = document.getElementById('recipe-details');
+        const urlParams = new URLSearchParams(window.location.search);
+        const recipeId = urlParams.get('id');
+
+        fetch(`/get-recipe/${recipeId}`)
+        .then(response => {
+                if (!response.ok) {
+                    if (response.status === 404) {
+                        throw new Error('Recipe not found!'); 
+                    } else {
+                        throw new Error('Network response was not ok.'); 
+                    }
+                }
+                return response.json();
+            })
+            .then(recipe => {
+                recipeDetails.innerHTML = `
+                    <h2>${recipe.name}</h2>
+                    <img src="${recipe.image}" alt="${recipe.name}">
+                    <p>Ingredients: ${recipe.ingredients}</p>
+                    <p>Procedure: ${recipe.steps}</p>
+                    <p>Category: ${recipe.category}</p>
+                    <p>By: ${recipe.first_name} ${recipe.last_name}</p>
+                `;
+            })
+            .catch(error => { 
+                console.error('Error fetching recipe:', error);
+                recipeDetails.innerHTML = `<p>Error loading recipe: ${error.message}</p>`; 
+            });
+    </script>
+</body>
+</html>

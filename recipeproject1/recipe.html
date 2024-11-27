@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addition of recipes page</title>
+    <link rel="stylesheet" href="recipe.css">
+   
+</head>
+<body>
+    <nav class="logo">
+        <img src="uploads/Gemini_Generated_Image_n0unfnn0unfnn0un.jpeg" alt="">
+    </nav>
+    <h1>Welcome Back!</h1>
+    <div class="recipeform">
+        
+    <form action="http://localhost:3000/add-recipe" method="POST" enctype="multipart/form-data">         <!--fiel for the name of the recipe-->
+        
+         <input type="text"required name="recipename" id="recipename" placeholder="Enter Recipe Name"><br>
+
+        <!--field for inserting images for the recipe-->
+        <label for="rmedia">Relevant media:</label>
+        <input type="file" multiple name="rmedia[]" id="rmedia"><br>
+
+        <!--field for typing out the ingredients-->
+        
+        <input type="text" maxlength="1000" name="ingredients" id="ingredients" placeholder="Enter Ingredients"><br>
+
+        <!--field for the procedure-->
+        
+        <input type="text" maxlength="1500" name="steps" required id="steps" placeholder="Enter the procedure"><br>
+
+        <!--field for the name of the owner of the recipe-->
+       
+        <input type="text" placeholder="Enter your First and Last name" name="recipeowner" id="recipeowner"><br>
+
+        <input type="text" name="recipecategory" id="recipecategory" placeholder="Choose Recipe Category">
+
+
+        <!--submission button-->
+        <input type="submit"><br>
+    </form>
+</div>
+</body>
+</html>

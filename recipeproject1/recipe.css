@@ -1,0 +1,86 @@
+body {
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(uploads/bimage1.jpeg);
+    background-position: center;
+    background-size: cover;
+    animation: animate 8s ease-in-out infinite;
+    height: 100vh; /* added this to set the body height to the viewport height */
+    margin: 0; /* added this to remove default margin */
+}
+
+@keyframes animate{
+    0%,100%{
+        background-image: url(uploads/bimage1.jpeg);
+    }
+    25%{
+        background-image: url(uploads/bimage2.jpeg);
+    }
+    50%{
+        background-image: url(uploads/bimage3.jpeg);
+    }
+    75%{
+        background-image: url(uploads/bimage4.jpg);
+    }
+}
+
+.recipeform {
+    max-width: 350px; /* reduced the width of the form */
+    margin: 20px auto; /* reduced the margin */
+    padding: 15px; /* reduced the padding */
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ecdcdb;
+}
+
+.recipeform input[type="text"],.recipeform input[type="file"] {
+    width: 90%; /* reduced the width of the input fields */
+    padding: 8px; /* reduced the padding */
+    margin-bottom: 15px; /* reduced the margin */
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 14px; /* reduced the font size */
+}
+
+.recipeform input[type="submit"] {
+    background-color:black;
+    color: #fff;
+    padding: 8px 15px; /* reduced the padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* reduced the font size */
+}
+
+.recipeform input[type="submit"]:hover {
+    background-color: #f44336;
+}
+
+.recipeform label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.recipeform input[type="file"] {
+    padding: 10px;
+}
+
+.recipeform input[type="text"]:focus,.recipeform input[type="file"]:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.logo {
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 0px;
+    text-align: center;
+    font-size: 30px; /* reduced the font size */
+}
+

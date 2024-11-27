@@ -1,0 +1,178 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Roboto', sans-serif;
+}
+body {
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)), url(bimage1.jpeg);
+    background-position: center;
+    background-size: cover;
+    animation: animate 8s ease-in-out infinite;
+    height: 100vh; /* added this to set the body height to the viewport height */
+    margin: 0; /* added this to remove default margin */
+}
+
+@keyframes animate{
+    0%,100%{
+        background-image: url(uploads/1634257696464.jpeg);
+    }
+    25%{
+        background-image: url(uploads/bimage2.jpeg);
+    }
+    50%{
+        background-image: url(uploads/bimage3.jpeg);
+    }
+    75%{
+        background-image: url(uploads/bimage4.jpg);
+    }
+}
+
+.container{
+    background:rgba(255, 255, 255, 0.703);
+    width:450px;
+    padding:1.5rem;
+    margin:50px auto;
+    border-radius:10px;
+    box-shadow:0 20px 35px rgba(0,0,1,0.9);
+}
+
+form{
+    margin:0 2rem;
+}
+
+.form-title{
+    font-size:1.5rem;
+    font-weight:bold;
+    text-align:center;
+    padding:1.3rem;
+    margin-bottom:0.4rem;
+}
+
+input{
+    color:inherit;
+    width:100%;
+    background-color:transparent;
+    border:none;
+    border-bottom:1px solid #757575;
+    padding-left:1.5rem;
+    font-size:15px;
+}
+
+   
+.input-group{
+    padding:1% 0;
+    position:relative;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+.input-group i{
+    position:absolute;
+    color:black;
+}
+input:focus{
+    border-bottom: 2px solid #007bff;
+    box-shadow: 0 1px 0 0 #007bff;
+    background-color: transparent;
+    outline:transparent;
+}
+input::placeholder{
+    color:transparent;
+}
+
+.input-group label {
+    font-weight: bold;
+}
+
+label{
+    color:#757575;
+    position:relative;
+    left:1.2em;
+    top:-1.3em;
+    cursor:auto;
+    transition:0.3s ease all;
+}
+input:focus~label,input:not(:placeholder-shown)~label{
+    top:-3em;
+    color:rgb(7, 82, 116);
+    font-size:15px;
+}
+
+.btn{
+    font-size:1.1rem;
+    font-weight:bold;
+    padding:8px 0;
+    border-radius:5px;
+    outline:none;
+    border:none;
+    width:100%;
+    background:rgb(136, 138, 138);
+    color:white;
+    cursor:pointer;
+    transition:0.9s;
+}
+.btn:hover{
+    text-decoration:underline;
+    background:rgb(7, 82, 116);
+    color:white;
+}
+
+.messageDiv{
+    background-color:aqua;
+    color:white;
+    padding:10px 20px;
+    margin:10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    opacity:0;
+    animation:fadeOut 7s forwards;
+}
+
+
+.logo {
+    margin-bottom: 15px; /* reduced the margin */
+}
+
+.logo img {
+    width: 80px; /* reduced the width of the logo */
+    height: 80px; /* reduced the height of the logo */
+    border-radius: 50%;
+}
+
+h1{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 0px;
+    text-align: center;
+    font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-left: 0px;
+    text-align: center;
+    color: #666;
+    font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    clear: both;
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px; /* reduced the font size */
+}
+
+.fa-heart-o {
+    color: #f44336;
+}
